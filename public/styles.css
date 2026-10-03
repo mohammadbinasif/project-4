@@ -1,0 +1,150 @@
+/* Intern Directory — Project 4 */
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --border: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --danger: #f87171;
+  --ok: #4ade80;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+header { text-align: center; margin-bottom: 2rem; }
+header h1 { font-size: 1.8rem; color: var(--accent); }
+header p { color: var(--muted); margin-top: 0.25rem; }
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.card h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+
+/* ---------- Form ---------- */
+form { display: flex; flex-direction: column; gap: 0.4rem; }
+label { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+}
+input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+button {
+  margin-top: 1rem;
+  background: var(--accent);
+  color: #082f49;
+  border: none;
+  border-radius: 6px;
+  padding: 0.65rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.15); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button:active { transform: translateY(1px); }
+
+/* ---------- List header / actions ---------- */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.actions { display: flex; align-items: center; gap: 0.6rem; }
+.actions button { margin-top: 0; padding: 0.45rem 0.9rem; font-size: 0.9rem; }
+.btn-danger { background: var(--danger); color: #450a0a; }
+.stats { color: var(--muted); font-size: 0.85rem; }
+
+/* ---------- Spinner (toggled in finally{}) ---------- */
+.spinner {
+  width: 34px;
+  height: 34px;
+  margin: 1rem auto;
+  border: 4px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- Messages ---------- */
+.error-banner {
+  background: #450a0a;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+.notice {
+  background: #052e16;
+  border: 1px solid var(--ok);
+  color: var(--ok);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.empty-state { color: var(--muted); text-align: center; padding: 1.25rem 0; }
+
+/* ---------- Intern list ---------- */
+.intern-list { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.intern-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+.intern-item .info { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.intern-item .name { font-weight: 600; }
+.intern-item .meta { color: var(--muted); font-size: 0.85rem; }
+.intern-item .track {
+  align-self: flex-start;
+  background: #0c4a6e;
+  color: var(--accent);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+.intern-item .delete-btn {
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  margin-top: 0;
+}
+.intern-item .delete-btn:hover { background: var(--danger); color: #450a0a; }

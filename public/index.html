@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intern Directory — Project 4</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Intern Directory</h1>
+    <p>Project 4 · Frontend &amp; Backend Integration</p>
+  </header>
+
+  <main>
+    <!-- ============ ADD FORM (POST) ============ -->
+    <section class="card">
+      <h2>Add an intern</h2>
+      <form id="intern-form" novalidate>
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" placeholder="Diana Prince" autocomplete="off" />
+
+        <label for="track">Track</label>
+        <input id="track" name="track" type="text" placeholder="Frontend" autocomplete="off" />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="diana@decodelabs.dev" autocomplete="off" />
+
+        <button type="submit" id="add-btn">Add intern</button>
+      </form>
+    </section>
+
+    <!-- ============ LIST (GET / DELETE) ============ -->
+    <section class="card">
+      <div class="list-header">
+        <h2>Interns</h2>
+        <div class="actions">
+          <span id="stats" class="stats" aria-live="polite"></span>
+          <button id="load-btn" type="button">Load</button>
+          <button id="simulate-btn" type="button" class="btn-danger">Simulate 500</button>
+        </div>
+      </div>
+
+      <!-- Loading spinner: hidden by default, toggled in finally{} -->
+      <div id="spinner" class="spinner" hidden role="status" aria-label="Loading"></div>
+
+      <!-- Error banner: user-friendly, never a blank screen -->
+      <div id="error-banner" class="error-banner" hidden role="alert"></div>
+
+      <!-- Success/info messages -->
+      <div id="notice" class="notice" hidden aria-live="polite"></div>
+
+      <!-- Rendered with .map() + createElement + textContent (never innerHTML) -->
+      <ul id="intern-list" class="intern-list"></ul>
+
+      <p id="empty-state" class="empty-state">No interns loaded yet — press <strong>Load</strong>.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
